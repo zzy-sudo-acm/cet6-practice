@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102637">
+  <title>六级进阶 · 500+ 训练台</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="plan.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="brand" href="#top"><span class="logo" aria-hidden="true">6<span>↗</span></span><span>六级进阶<small>CET-6 个人训练台</small></span></a>
+      <nav aria-label="页面导航"><a href="#plan">训练计划</a><a href="#calendar">打卡日历</a><button class="quiet" id="library-open" type="button">真题资料</button></nav>
+    </div>
+  </header>
+  <main class="wrap" id="top">
+    <section class="hero" aria-labelledby="headline">
+      <div class="hero-copy">
+        <p class="hero-label"><span></span> 2026 下半年备考</p>
+        <h1 id="headline">这一次，<br>冲上 <em>500+</em></h1>
+        <p class="hero-description">先用真题摸底，稳住阅读和写译，最后一周集中练听力。</p>
+        <a class="cta" href="#plan">选今天的任务 <span aria-hidden="true">↓</span></a>
+      </div>
+      <svg class="trajectory" viewBox="0 0 620 340" fill="none" aria-hidden="true">
+        <defs><pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" stroke="#9cc3cf" stroke-opacity=".14"/></pattern><linearGradient id="trail" x1="78" y1="296" x2="542" y2="52" gradientUnits="userSpaceOnUse"><stop stop-color="#58a69c" stop-opacity=".35"/><stop offset="1" stop-color="#d8ef78"/></linearGradient></defs>
+        <path fill="url(#grid)" d="M0 0h620v340H0z"/>
+        <path d="M28 307H597M66 322V24" stroke="#9cc3cf" stroke-opacity=".34"/>
+        <path d="M66 266C165 269 196 209 259 214S376 187 415 136 473 73 548 56" stroke="url(#trail)" stroke-width="2.5"/>
+        <path d="M66 266C165 269 196 209 259 214S376 187 415 136 473 73 548 56V307H66Z" fill="url(#trail)" opacity=".08"/>
+        <path d="M259 214v93M415 136v171M548 56v251" stroke="#b9d887" stroke-opacity=".28" stroke-dasharray="4 6"/>
+        <circle cx="66" cy="266" r="5" fill="#98bdba"/><circle cx="259" cy="214" r="5" fill="#9dc2b7"/><circle cx="415" cy="136" r="5" fill="#b9d887"/>
+        <circle cx="548" cy="56" r="22" stroke="#d8ef78" stroke-opacity=".22"/><circle cx="548" cy="56" r="13" stroke="#d8ef78" stroke-opacity=".5"/><circle cx="548" cy="56" r="5" fill="#d8ef78"/>
+        <path d="M568 48l10-12m-6 2 6-2-1 7" stroke="#d8ef78" stroke-width="1.5" stroke-linecap="round"/>
+        <g fill="#9fb9bf" font-size="12" font-family="monospace"><text x="77" y="291">现在 / 起点</text><text x="241" y="330">摸底</text><text x="403" y="330">精练</text></g>
+        <text x="487" y="100" fill="#d8ef78" font-size="16" font-family="monospace">500+ 目标</text>
+      </svg>
+      <div class="exam">
+        <p>六级笔试倒计时</p><strong id="countdown">—</strong><span class="exam-unit" id="countdown-unit">天</span>
+        <div class="exam-date">2026 年 12 月 12 日 · 周六</div>
+        <div class="exam-time">15:00–17:25 <span>北京时间</span></div>
+        <a href="https://www.neea.edu.cn/html1/report/2609/1-1.htm" target="_blank" rel="noopener">官方考试安排 ↗</a>
+      </div>
+    </section>
+    <div class="workspace">
+      <section class="training" id="plan" aria-labelledby="plan-title">
+        <div class="section-title"><div><p class="kicker">我的训练路线</p><h2 id="plan-title">阶段训练</h2></div><div class="plan-count" id="plan-count"></div></div>
+        <p class="muted intro">每张任务卡是一回练习。挑顺手的日期排进去，也可以直接开始。</p>
+        <div id="phases"></div>
+      </section>
+      <aside class="sidebar">
+        <section class="panel progress-card" aria-labelledby="progress-title">
+          <div class="panel-title"><h2 id="progress-title">总进度</h2><strong id="percent">0%</strong></div>
+          <progress id="progress" value="0" max="1" aria-labelledby="progress-title"></progress>
+          <div class="progress-meta"><span id="completed"></span><b id="remaining"></b></div>
+        </section>
+        <section class="panel calendar" id="calendar" aria-labelledby="cal-title">
+          <div class="panel-title"><h2 id="cal-title">打卡日历</h2><button class="quiet today-button" type="button" data-action="today">回到今天</button></div>
+          <div class="month-nav"><strong id="month-label" aria-live="polite"></strong><div><button class="icon-button" type="button" data-action="prev" aria-label="上个月">‹</button><button class="icon-button" type="button" data-action="next" aria-label="下个月">›</button></div></div>
+          <div class="weekdays" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+          <div class="calendar-grid" id="calendar-grid"></div>
+          <div class="legend"><span><i class="planned-dot"></i>已安排</span><span><i class="checked-dot"></i>已打卡</span><span><i class="exam-dot"></i>考试日</span></div>
+          <div class="day-detail" id="day-detail"></div>
+        </section>
+      </aside>
+    </div>
+    <footer><span>六级进阶 · 2026</span><span id="storage-note">训练进度和打卡保存在当前浏览器。</span></footer>
+  </main>
+  <dialog id="schedule">
+    <form id="schedule-form">
+      <div class="panel-title"><h2>安排练习</h2><button type="button" class="icon-button dialog-close" aria-label="关闭">×</button></div>
+      <p class="muted" id="schedule-task"></p>
+      <label for="task-date">选择日期</label>
+      <input type="date" id="task-date" required>
+      <div class="dialog-actions"><button class="quiet" type="button" id="unschedule">取消安排</button><button class="primary" type="submit">保存日期</button></div>
+    </form>
+  </dialog>
+  <dialog id="library">
+    <div class="panel-title"><h2>真题资料</h2><button type="button" class="icon-button dialog-close" aria-label="关闭">×</button></div>
+    <p class="muted" id="library-description">按场次查看 15 套真题。订正时打开同套原站页面核对答案。</p>
+    <div id="library-list"></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
