@@ -153,6 +153,22 @@ input[type="date"] { width: 100%; padding: 8px; border: 1px solid #9db2be; borde
 .library-row small { display: block; color: var(--muted); }
 .library-row .resources { margin: 0; justify-content: flex-end; }
 .toast { position: fixed; right: max(16px, calc((100vw - 1240px) / 2)); bottom: 20px; z-index: 4; max-width: calc(100vw - 32px); padding: 9px 15px; border-radius: 9px; color: white; background: #15392f; font-size: 13px; box-shadow: 0 5px 20px #15392f35; }
+.current-stage { padding: clamp(18px, 3vw, 30px); border: 1px solid var(--line); border-radius: 16px; background: white; }
+.stage-line { display: flex; align-items: center; gap: 13px; margin-bottom: 15px; }
+.stage-line .phase-number { width: 48px; height: 48px; flex: none; }
+.stage-line .kicker { margin-bottom: 2px; }
+.current-stage h3 { margin: 0; font-size: clamp(21px, 3vw, 27px); line-height: 1.3; }
+.current-stage .task-meta { font-size: 13px; }
+.stage-description { margin: 13px 0 17px; font-size: 14px; color: var(--muted); }
+.exercise-list { display: grid; gap: 8px; }
+.exercise, .exercise-full { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; padding: 10px 13px; border: 1px solid var(--line); border-radius: 9px; background: #f5f9fa; font-size: 13px; }
+.exercise .resources, .exercise-full .resources { margin: 0; }
+button.resource { border: 0; background: none; padding: 0; }
+.alternate-label { color: var(--muted); font-size: 12px; margin: 16px 0 5px; }
+.exercise-full + .exercise-full { margin-top: 8px; }
+.stage-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 19px; }
+.material-bar { margin-top: 13px; padding: 12px 14px; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; justify-content: space-between; border: 1px solid var(--line); border-radius: 12px; font-size: 13px; }
+.material-bar p { color: var(--muted); font-size: 12px; margin: 3px 0 0; }
 @media (max-width: 900px) {
   .wrap { width: calc(100% - 40px); }
   .workspace { gap: 15px; grid-template-columns: minmax(0,1fr) minmax(264px, 290px); }
